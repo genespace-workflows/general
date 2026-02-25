@@ -4,3 +4,4 @@ workflows:
      primaryDescriptorPath: /nextflow.config
      readMePath: /README.md
      name: fastqc
+     topic: Quality control of FASTQ data with single report
