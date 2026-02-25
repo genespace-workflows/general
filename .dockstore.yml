@@ -1,0 +1,6 @@
+version: 1.2
+workflows:
+   - subclass: NFL
+     primaryDescriptorPath: /nextflow.config
+     readMePath: /README.md
+     name: fastqc
