@@ -39,20 +39,8 @@ process multiQC {
     """
 }
 
-process parseMultyQC {
-    input:
-    path (inputfiles)
-
-    script:
-    """
-    	curl -H "Content-Type: application/json" --data '{${params.parseData},"results":"${params.multiqcDir}/multiqc_data/multiqc_fastqc.txt", "report":"${params.multiqcDir}/multiqc_report.html"}' ${params.parseUrl}
-    """
-
-}
-
 workflow {
     fastqc_out = fastQC(reads_for_fastqc)
     multiQC_out = multiQC(fastqc_out.collect())
-    parseMultyQC("${params.multiqcDir}/multiqc_data_multiqc_fastqc.txt")
 }
 
